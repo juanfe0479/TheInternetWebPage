@@ -5,18 +5,22 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
     protected WebDriver driver;
-    private final WebDriverWait wait;
+    protected final WebDriverWait wait;
+
+    protected Actions actions;
     protected Logger log;
 
     public BasePage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver,20);
+        this.wait = new WebDriverWait(driver,10);
+        this.actions =  new Actions(driver);
         this.log = Logger.getLogger(BasePage.class);
         PageFactory.initElements(driver,this);
     }
@@ -42,6 +46,10 @@ public class BasePage {
 
     public void waitForElement(WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void goBack(){
+        driver.navigate().back();
     }
 
 }

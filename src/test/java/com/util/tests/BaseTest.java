@@ -1,14 +1,20 @@
 package com.util.tests;
 
 import com.drivers.Driver;
-import com.pages.HomePage;
+import com.pages.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import org.testng.asserts.SoftAssert;
 
 public class BaseTest {
     protected Driver driver;
     protected HomePage homePage;
+    protected ABPage abPage;
+    protected AddRemovePage addRemovePage;
+    protected BrokenImagesPage brokenImagesPage;
+    protected SoftAssert softAssert;
+
 
     @BeforeClass
     @Parameters({"browser", "url"})

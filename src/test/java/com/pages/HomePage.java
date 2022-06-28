@@ -16,9 +16,6 @@ public class HomePage extends BasePage {
     @FindBy(css = "li a[href*='/basic_auth']")
     private WebElement loginLink;
 
-    @FindBy(css = "li a[href*='/abtest']")
-    private WebElement abButton;
-
     @FindBy(css = "li a[href*='/broken_images']")
     private WebElement brokenImgLink;
 
@@ -75,5 +72,21 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public ABPage goToABPage(){
+        click(abLink);
+        return new ABPage(driver);
+
+    }
+
+    public AddRemovePage goToAddRemovePage(){
+        click(addRemoveLink);
+        return new AddRemovePage(driver);
+    }
+
+    public BrokenImagesPage goToBrokenImagesPage(){
+        click(brokenImgLink);
+        return new BrokenImagesPage(driver);
     }
 }

@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="ESPN Suite" verbose="1" parallel="false">
+<suite name="The-Internet" verbose="1" parallel="false">
     <parameter name="browser" value="chrome"></parameter>
     <parameter name="url" value="https://the-internet.herokuapp.com/"></parameter>
-    <test preserve-order="true" name="Navigation on ESPN by ESPN">
+    <test preserve-order="true" name="Testing Functionalities on WebPage">
         <classes>
-            <class name="com.tests.Test">
+            <class name="com.tests.FirstTest">
             </class>
         </classes>
     </test>
